@@ -3,6 +3,36 @@ import 'package:flutter/material.dart';
 class AccountPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // Function to show the alert dialog
+    Future<void> _showSignInDialog() async {
+      return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title:
+                Text('QrToGoogleSheets Wants to Use "google.com" to Sign In.'),
+            content: Text(
+                'This allows the app and website to share information about you.'),
+            actions: <Widget>[
+              TextButton(
+                child: Text('Cancel'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+              TextButton(
+                child: Text('Continue'),
+                onPressed: () {
+                  // Add your sign-in logic here
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        },
+      );
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Account'),
@@ -43,9 +73,8 @@ class AccountPage extends StatelessWidget {
                     16), // Add spacing between the description and the button
             Center(
               child: TextButton(
-                onPressed: () {
-                  // Add your Google sign-in logic here
-                },
+                onPressed:
+                    _showSignInDialog, // Show the dialog when the button is tapped
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(Colors.lightBlue),
                 ),
