@@ -58,7 +58,31 @@ class AccountPage extends StatelessWidget {
                   ),
                 ),
               ),
-            ), // Add additional content for the AccountPage here
+            ),
+            const SizedBox(
+                height:
+                    16), // Add spacing between the button and the description
+            Container(
+              alignment: Alignment.center,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Please sign in with a Google account to use',
+                    style: TextStyle(
+                      fontSize: 14,
+                    ),
+                  ),
+                  Text(
+                    'Google Sheets (Drive)',
+                    style: TextStyle(
+                      fontSize: 14,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            // Add additional content for the AccountPage here
           ],
         ),
       ),
