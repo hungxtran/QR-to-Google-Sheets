@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AccountPage extends StatelessWidget {
   @override
@@ -22,8 +23,23 @@ class AccountPage extends StatelessWidget {
               ),
               TextButton(
                 child: Text('Continue'),
-                onPressed: () {
-                  // Add your sign-in logic here
+                onPressed: () async {
+                  // Define the URL for Google Sheets permissions (replace with your actual URL)
+                  final Uri googleSheetsPermissionUrl = Uri(
+                      scheme: 'https',
+                      host: 'www.googleapis.com',
+                      path: '/auth/spreadsheets');
+
+                  if (await canLaunchUrl(googleSheetsPermissionUrl)) {
+                    await launchUrl(googleSheetsPermissionUrl);
+                  } else {
+                    // Handle the error if the URL cannot be launched
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text('Unable to open the URL.'),
+                      ),
+                    );
+                  }
                   Navigator.of(context).pop();
                 },
               ),

@@ -10,6 +10,7 @@ dependencies:
   ai_barcode_scanner: ^3.4.1
   flutter:
     sdk: flutter
+  url_launcher: ^6.1.14
 
 dev_dependencies:
   flutter_test:
