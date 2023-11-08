@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AccountPage extends StatelessWidget {
+  const AccountPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     // Function to show the alert dialog
@@ -10,19 +12,19 @@ class AccountPage extends StatelessWidget {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title:
-                Text('QrToGoogleSheets Wants to Use "google.com" to Sign In.'),
-            content: Text(
+            title: const Text(
+                'QrToGoogleSheets Wants to Use "google.com" to Sign In.'),
+            content: const Text(
                 'This allows the app and website to share information about you.'),
             actions: <Widget>[
               TextButton(
-                child: Text('Cancel'),
+                child: const Text('Cancel'),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
               ),
               TextButton(
-                child: Text('Continue'),
+                child: const Text('Continue'),
                 onPressed: () async {
                   // Define the URL for Google Sheets permissions (replace with your actual URL)
                   final Uri googleSheetsPermissionUrl = Uri(
@@ -35,7 +37,7 @@ class AccountPage extends StatelessWidget {
                   } else {
                     // Handle the error if the URL cannot be launched
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
+                      const SnackBar(
                         content: Text('Unable to open the URL.'),
                       ),
                     );
@@ -52,8 +54,9 @@ class AccountPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Account'),
+        centerTitle: true,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.of(context).pop();
           },
@@ -109,7 +112,7 @@ class AccountPage extends StatelessWidget {
                     16), // Add spacing between the button and the description
             Container(
               alignment: Alignment.center,
-              child: Column(
+              child: const Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
