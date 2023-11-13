@@ -1,4 +1,4 @@
-name: qr_to_google_sheets
+name: dhgt_gate
 description: A new Flutter project.
 publish_to: 'none'
 version: 0.1.0
@@ -10,12 +10,19 @@ dependencies:
   ai_barcode_scanner: ^3.4.1
   flutter:
     sdk: flutter
+  gsheets: ^0.5.0
   url_launcher: ^6.1.14
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
+  flutter_launcher_icons: ^0.13.1
+
+flutter_launcher_icons:
+  image_path: "icon/icon.png"
+  android: true
+  ios: true
 
 flutter:
   uses-material-design: true
