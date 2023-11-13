@@ -173,7 +173,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   MaterialPageRoute(
                     builder: (context) => AiBarcodeScanner(
                       validator: (value) {
-                        return value.startsWith('https://');
+                        return value.isNotEmpty;
                       },
                       canPop: true,
                       onScan: (String value) async {
